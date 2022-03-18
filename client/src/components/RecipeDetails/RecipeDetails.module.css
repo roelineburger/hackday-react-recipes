@@ -1,11 +1,25 @@
+.container {
+  display: flex;
+  padding: 0 20px;
+}
+.content {
+  padding: 0 30px;
+}
+
+.sidebar {
+  flex-shrink: 0;
+  flex-grow: 0;
+  width: 300px;
+}
+
 .title {
   font-family: 'Noto Serif', serif;
   font-size: 45px;
-  padding: 20px;
-  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.1;
 }
 
-.recipe__img {
+.image {
   justify-content: center;
   display: flex;
   align-items: center;
@@ -13,14 +27,51 @@
   margin-bottom: 15px;
 }
 
-.recipe__img img {
+.image img {
   border-radius: 6px;
   width: 300px;
 }
 
-.recipe__description {
+.description {
   line-height: 1.5;
-  padding: 20px;
   font-size: 16px;
-  white-space: pre;
+  white-space: pre-wrap;
+  max-width: 100%;
+}
+
+.ingredients {
+  line-height: 1.5;
+  font-size: 16px;
+  white-space: pre-wrap;
+}
+
+.ingredientsTitle {
+  font-family: 'Noto Serif', serif;
+  font-size: 20px;
+  margin: 15px 0;
+}
+
+.descriptionTitle {
+  font-family: 'Noto Serif', serif;
+  font-size: 20px;
+  margin: 15px 0;
+}
+
+.summary {
+  margin-bottom: 50px;
+}
+
+.tags {
+  margin: 0 -5px;
+}
+
+.tag {
+  display: inline-block;
+  font-weight: bold;
+  padding: 3px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  margin: 0 3px;
+  background-color: #b05045;
+  color: #36454f;
 }

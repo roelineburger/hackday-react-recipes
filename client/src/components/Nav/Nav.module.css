@@ -1,13 +1,13 @@
-.nav-primary {
+.primary {
   display: flex;
   display: wrap;
   align-items: center;
   justify-content: center;
 }
-.nav__home {
+.home {
   padding: 10px;
 }
 
-.nav__add {
+.add {
   padding: 10px;
 }

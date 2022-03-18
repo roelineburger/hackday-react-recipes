@@ -2,7 +2,7 @@ import React from 'react';
 import ImageUpload from 'image-upload-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './AddRecipe.css';
+import styles from './AddRecipe.module.css';
 
 const { v4: uuidv4 } = require('uuid');
 
@@ -14,6 +14,7 @@ const AddRecipe = () => {
   const [newRecipeSummary, setNewRecipeSummary] = useState('');
   const [newRecipeIngredients, setNewRecipeIngredients] = useState('');
   const [newImageUrl, setNewImageUrl] = useState('');
+  const [newTags, setNewTags] = useState('');
   const navigate = useNavigate();
 
   const handleChange = (event) => {
@@ -32,6 +33,9 @@ const AddRecipe = () => {
     if (event.target.name === 'recipe-ingredients') {
       setNewRecipeIngredients(event.target.value);
     }
+    if (event.target.name === 'recipe-tags') {
+      setNewTags(event.target.value);
+    }
   };
 
   const addRecipe = async () => {
@@ -42,6 +46,7 @@ const AddRecipe = () => {
       id: generateRecipeId(),
       title: newRecipeTitle,
       summary: newRecipeSummary,
+      tags: newTags,
       ingredients: newRecipeIngredients,
       description: newRecipeDescription,
       image: newImageUrl,
@@ -60,9 +65,8 @@ const AddRecipe = () => {
 
   return (
     <div>
-      <h1 className="add__recipe-header">Add recipe here</h1>
+      <h1 className={styles.header}>Add recipe here</h1>
       <input
-        className="input__fields"
         type="text"
         name="recipe-title"
         placeholder="Title..."
@@ -74,21 +78,28 @@ const AddRecipe = () => {
         placeholder="Summary..."
         onChange={handleChange}
         value={newRecipeSummary}
-        className="text__area"
+        className={styles.text}
+      />
+      <textarea
+        name="recipe-tags"
+        placeholder="Tags..."
+        onChange={handleChange}
+        value={newTags}
+        className={styles.text}
       />
       <textarea
         name="recipe-ingredients"
         placeholder="Ingredients..."
         onChange={handleChange}
         value={newRecipeIngredients}
-        className="text__area"
+        className={styles.text}
       />
       <textarea
         name="recipe-desc"
         placeholder="Description..."
         onChange={handleChange}
         value={newRecipeDescription}
-        className="text__area"
+        className={styles.text}
       />
 
       <input
@@ -99,7 +110,7 @@ const AddRecipe = () => {
         value={newImageUrl}
       />
 
-      <button onClick={addRecipe} className="add__recipe-btn">
+      <button onClick={addRecipe} className={styles.add}>
         Add Recipe
       </button>
     </div>

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import './Home.css';
+import styles from './Home.module.css';
 
 const Home = () => {
   const [recipes, setRecipes] = useState([]);
@@ -14,22 +14,22 @@ const Home = () => {
     fetchData();
   }, [setRecipes]);
   return (
-    <section className="cards-primary">
-      <p className="home__welcome">
+    <section className={styles.primary}>
+      <p className={styles.welcome}>
         Welcome to my recipe hub, stay a while and nourish your body and soul
         with these recipes.
       </p>
-      <div className="card-container">
+      <div className={styles.container}>
         {recipes.map((recipe) => (
           <Link to={`/recipe/${recipe.id}`} key={recipe.id}>
-            <section className="card">
+            <section className={styles.card}>
               <img
                 alt={recipe.title}
                 src={recipe.image}
-                className="card__img"
+                className={styles.image}
               />
-              <h3 className="recipe__title">{recipe.title}</h3>
-              <div className="recipe__summary">{recipe.summary}</div>
+              <h3 className={styles.title}>{recipe.title}</h3>
+              <div className={styles.summary}>{recipe.summary}</div>
             </section>
           </Link>
         ))}

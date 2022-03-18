@@ -1,4 +1,4 @@
-.add__recipe-header {
+.header {
   font-size: 25px;
   text-align: left;
   padding: 20px;
@@ -16,7 +16,7 @@ input[type='text'] {
   color: black;
 }
 
-.add__recipe-btn {
+.add {
   text-align: center;
   color: #36454f;
   font-size: 15px;
@@ -31,7 +31,7 @@ input[type='text'] {
   margin: 10px 10px 10px 20px;
 }
 
-.text__area {
+.text {
   padding: 5px;
   border: 2px solid #ccc;
   -webkit-border-radius: 5px;
