@@ -17,6 +17,7 @@
   font-size: 45px;
   margin-bottom: 20px;
   line-height: 1.1;
+  color: #a0d6b4;
 }
 
 .image {
@@ -72,6 +73,6 @@
   border-radius: 15px;
   font-size: 14px;
   margin: 0 3px;
-  background-color: #b05045;
+  background-color: #a0d6b4;
   color: #36454f;
 }

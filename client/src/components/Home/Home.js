@@ -28,6 +28,14 @@ const Home = () => {
                 src={recipe.image}
                 className={styles.image}
               />
+              <section className={styles.tags}>
+                {recipe.tags &&
+                  recipe.tags.map((tag) => (
+                    <span key={tag} className={styles.tag}>
+                      {tag}
+                    </span>
+                  ))}
+              </section>
               <h3 className={styles.title}>{recipe.title}</h3>
               <div className={styles.summary}>{recipe.summary}</div>
             </section>
