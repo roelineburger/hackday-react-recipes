@@ -1,0 +1,13 @@
+.nav-primary {
+  display: flex;
+  display: wrap;
+  align-items: center;
+  justify-content: center;
+}
+.nav__home {
+  padding: 10px;
+}
+
+.nav__add {
+  padding: 10px;
+}

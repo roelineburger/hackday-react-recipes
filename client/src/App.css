@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  background-color: #36454f;
+  color: white;
+}
+
+.logo {
+  font-family: 'Noto Serif', serif;
+  font-size: 60px;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  color: #27292d;
+  line-height: 1.5;
+  min-width: 400px;
+}
+
+.home__welcome {
+  font-size: 20px;
+  text-align: center;
+  padding-bottom: 20px;
+}

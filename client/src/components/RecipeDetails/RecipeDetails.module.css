@@ -1,0 +1,26 @@
+.title {
+  font-family: 'Noto Serif', serif;
+  font-size: 45px;
+  padding: 20px;
+  text-align: center;
+}
+
+.recipe__img {
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.recipe__img img {
+  border-radius: 6px;
+  width: 300px;
+}
+
+.recipe__description {
+  line-height: 1.5;
+  padding: 20px;
+  font-size: 16px;
+  white-space: pre;
+}

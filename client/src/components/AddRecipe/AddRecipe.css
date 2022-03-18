@@ -1,0 +1,44 @@
+.add__recipe-header {
+  font-size: 25px;
+  text-align: left;
+  padding: 20px;
+  font-family: 'Noto Serif', serif;
+}
+
+input[type='text'] {
+  padding: 5px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  width: 70%;
+  font-size: 20px;
+  margin: 10px 10px 10px 20px;
+  color: black;
+}
+
+.add__recipe-btn {
+  text-align: center;
+  color: #36454f;
+  font-size: 15px;
+  margin-top: 1em;
+  background-color: lightgray;
+  padding: 0.5em;
+  border: none;
+  width: 30%;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+  margin: 10px 10px 10px 20px;
+}
+
+.text__area {
+  padding: 5px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  width: 70%;
+  font-size: 20px;
+  margin: 10px 10px 10px 20px;
+  color: black;
+  height: 300px;
+}
