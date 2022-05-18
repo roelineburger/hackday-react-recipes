@@ -5,7 +5,6 @@ import styles from './RecipeDetails.module.css';
 const RecipeDetails = () => {
   const { id } = useParams();
   const [recipe, setRecipe] = useState({});
-  console.log(recipe);
 
   useEffect(() => {
     const run = async () => {

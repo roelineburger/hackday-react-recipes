@@ -63,6 +63,8 @@ const AddRecipe = () => {
     navigate(`/recipe/${id}`);
   };
 
+  console.log(newTags);
+
   return (
     <div>
       <h1 className={styles.header}>Add recipe here</h1>
