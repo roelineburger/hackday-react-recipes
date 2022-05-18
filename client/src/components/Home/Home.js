@@ -23,10 +23,13 @@ const Home = () => {
   const filterRecipes = (recipeArr, tag) => {
     const filter = recipeArr.filter((rec) => {
       const match = rec.tags.filter((recipe) => recipe === tag);
+      //return rec.tags.includes(tag);
       if (match.length > 0) return match;
     });
     return setIsFiltered(filter);
   };
+  console.log(recipes);
+  console.log(isFiltered);
 
   return (
     <section className={styles.primary}>
