@@ -23,9 +23,7 @@ const Home = () => {
     // return recipe.tags.indexOf(selectedTag) !== -1;
     return recipe.tags.includes(selectedTag);
     // const data = recipe.tags.indexOf(selectedTag) > -1;
-    // console.log(data);
   });
-  console.log(filteredRecipes);
 
   //take the recipe array and the tag. filter the array to get the tags, then check if there is a recipe that matches the ta
   // that was clicked.
@@ -39,8 +37,6 @@ const Home = () => {
   //   });
   //   return setIsFiltered(filter);
   // };
-  // console.log(recipes);
-  // console.log(isFiltered);
 
   return (
     <section className={styles.primary}>
