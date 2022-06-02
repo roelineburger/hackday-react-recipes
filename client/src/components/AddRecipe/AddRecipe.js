@@ -1,8 +1,9 @@
 import React from 'react';
-import ImageUpload from 'image-upload-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './AddRecipe.module.css';
+import { storage } from '../../modules/firebase-config';
+import { ref, uploadBytesResumable, getDownloadURL } from '@firebase/storage';
 
 const { v4: uuidv4 } = require('uuid');
 
@@ -16,6 +17,37 @@ const AddRecipe = () => {
   const [newImageUrl, setNewImageUrl] = useState('');
   const [newTags, setNewTags] = useState('');
   const navigate = useNavigate();
+  const [progress, setProgress] = useState(0);
+
+  const formHandler = (e) => {
+    e.preventDefault();
+    const file = e.target[0].files[0];
+    console.log(file);
+    uploadFiles(file);
+  };
+
+  const uploadFiles = (file) => {
+    if (!file) {
+      return;
+    }
+    const storageRef = ref(storage, `/files/${file.name}`);
+    const uploadTask = uploadBytesResumable(storageRef, file);
+    uploadTask.on(
+      'state_changed',
+      (snapshot) => {
+        const prog = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        setProgress(prog);
+      },
+      (err) => console.log(err),
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((url) => {
+          setNewImageUrl(url);
+        });
+      }
+    );
+  };
 
   const handleChange = (event) => {
     if (event.target.name === 'recipe-title') {
@@ -24,9 +56,7 @@ const AddRecipe = () => {
     if (event.target.name === 'recipe-desc') {
       setNewRecipeDescription(event.target.value);
     }
-    if (event.target.name === 'recipe-img') {
-      setNewImageUrl(event.target.value);
-    }
+
     if (event.target.name === 'recipe-summary') {
       setNewRecipeSummary(event.target.value);
     }
@@ -63,8 +93,6 @@ const AddRecipe = () => {
     navigate(`/recipe/${id}`);
   };
 
-  console.log(newTags);
-
   return (
     <div>
       <h1 className={styles.header}>Add recipe here</h1>
@@ -74,6 +102,7 @@ const AddRecipe = () => {
         placeholder="Title..."
         onChange={handleChange}
         value={newRecipeTitle}
+        required
       />
       <textarea
         name="recipe-summary"
@@ -81,6 +110,7 @@ const AddRecipe = () => {
         onChange={handleChange}
         value={newRecipeSummary}
         className={styles.text}
+        required
       />
       <textarea
         name="recipe-tags"
@@ -88,6 +118,7 @@ const AddRecipe = () => {
         onChange={handleChange}
         value={newTags}
         className={styles.text}
+        required
       />
       <textarea
         name="recipe-ingredients"
@@ -95,6 +126,7 @@ const AddRecipe = () => {
         onChange={handleChange}
         value={newRecipeIngredients}
         className={styles.text}
+        required
       />
       <textarea
         name="recipe-desc"
@@ -102,16 +134,18 @@ const AddRecipe = () => {
         onChange={handleChange}
         value={newRecipeDescription}
         className={styles.text}
+        required
       />
-
-      <input
-        type="text"
-        name="recipe-img"
-        placeholder="Image URL..."
-        onChange={handleChange}
-        value={newImageUrl}
-      />
-
+      <form onSubmit={formHandler}>
+        <input
+          type="file"
+          name="recipe-img"
+          accept="image/*"
+          onChange={handleChange}
+        />
+        <button type="submit">Upload</button>
+      </form>
+      <h3>Uploaded {progress} %</h3>
       <button onClick={addRecipe} className={styles.add}>
         Add Recipe
       </button>
