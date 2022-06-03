@@ -22,7 +22,6 @@ const AddRecipe = () => {
   const formHandler = (e) => {
     e.preventDefault();
     const file = e.target[0].files[0];
-    console.log(file);
     uploadFiles(file);
   };
 
@@ -136,16 +135,21 @@ const AddRecipe = () => {
         className={styles.text}
         required
       />
-      <form onSubmit={formHandler}>
+      <form onSubmit={formHandler} className={styles.img}>
         <input
           type="file"
           name="recipe-img"
           accept="image/*"
           onChange={handleChange}
         />
-        <button type="submit">Upload</button>
+        <button type="submit" className={styles.add}>
+          Upload
+        </button>
+        {newImageUrl && (
+          <h3 className={styles.progress}>Uploaded {progress} %</h3>
+        )}
       </form>
-      <h3>Uploaded {progress} %</h3>
+
       <button onClick={addRecipe} className={styles.add}>
         Add Recipe
       </button>

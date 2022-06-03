@@ -60,4 +60,7 @@
   margin: 3px 3px;
   background-color: #a0d6b4;
   color: #36454f;
+  cursor: pointer;
+
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }

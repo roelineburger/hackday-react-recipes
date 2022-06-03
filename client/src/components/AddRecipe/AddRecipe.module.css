@@ -42,3 +42,25 @@ input[type='text'] {
   color: black;
   height: 300px;
 }
+
+.img {
+  text-align: center;
+  color: #36454f;
+  font-size: 15px;
+  margin-top: 1em;
+  background-color: lightgray;
+  padding: 0.5em;
+  border: none;
+  width: 70%;
+  border-radius: 3px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  letter-spacing: 1px;
+  margin: 10px 10px 10px 20px;
+}
+
+.progress {
+  border-radius: 3px;
+  background-color: #a0d6b4;
+  color: #36454f;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
