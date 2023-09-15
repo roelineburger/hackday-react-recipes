@@ -1,20 +1,22 @@
 const { MongoClient } = require('mongodb');
 const { v4: uuidv4 } = require('uuid');
+require('dotenv').config();
+console.log(process.env.MONGO_USERNAME, 'USERNAME');
 
-const generateRecipeId = () => uuidv4();
-
-const url = `mongodb://${process.env.MONGO_USERNAME}:${process.env.MONGO_PASSWORD}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DATABASE}`;
+const url = `mongodb://${process.env.MONGO_INITDB_ROOT_USERNAME}:${process.env.MONGO_INITDB_ROOT_PASSWORD}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_INITDB_DATABASE}`;
 const dbName = 'recipes';
 let client = null;
 let db = null;
 let collection = null;
 
 const run = async () => {
+  console.log(url, 'URL');
   try {
     client = await MongoClient.connect(url, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     });
+
     console.log('Connected to server');
     db = client.db(dbName);
     collection = db.collection('recipes');

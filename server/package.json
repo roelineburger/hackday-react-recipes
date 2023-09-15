@@ -10,7 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
-    "dotenv": "^16.0.0",
+    "dependency-env": "^0.1.1",
+    "dotenv": "^16.3.1",
     "express": "^4.17.3",
     "mongodb": "^4.4.1",
     "uuid": "^8.3.2"
