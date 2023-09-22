@@ -1,5 +1,3 @@
-//@ts-nocheck
-
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
@@ -19,26 +17,11 @@ const Home = () => {
 
   const filteredRecipes = recipes.filter((recipe) => {
     if (!selectedTag) {
-      return true; //if true display all recipes
+      return true;
     }
-    // return recipe.tags.filter((tag) => tag === selectedTag).length > 0;
-    // return recipe.tags.indexOf(selectedTag) !== -1;
-    return recipe.tags.includes(selectedTag);
-    // const data = recipe.tags.indexOf(selectedTag) > -1;
-  });
 
-  //take the recipe array and the tag. filter the array to get the tags, then check if there is a recipe that matches the ta
-  // that was clicked.
-  // then if there was a match, return the match
-  // and then send the match to the filtered
-  // const filterRecipes = (recipeArr, tag) => {
-  //   const filter = recipeArr.filter((rec) => {
-  //     const match = rec.tags.filter((recipe) => recipe === tag);
-  //     //return rec.tags.includes(tag);
-  //     if (match.length > 0) return match;
-  //   });
-  //   return setIsFiltered(filter);
-  // };
+    return recipe.tags.includes(selectedTag);
+  });
 
   return (
     <section className={styles.primary}>
