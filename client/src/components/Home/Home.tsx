@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Home.module.css';
+import { Recipe } from '../../types/types';
 
 const Home = () => {
-  const [recipes, setRecipes] = useState([]);
-  const [selectedTag, setSelectedTag] = useState();
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [selectedTag, setSelectedTag] = useState<string>();
 
   useEffect(() => {
     const fetchData = async () => {

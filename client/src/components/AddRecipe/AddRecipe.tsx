@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { FormEvent } from 'react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './AddRecipe.module.css';
+//@ts-ignore
 import { storage } from '../../modules/firebase-config';
 import { ref, uploadBytesResumable, getDownloadURL } from '@firebase/storage';
 
@@ -10,22 +11,25 @@ const { v4: uuidv4 } = require('uuid');
 const generateRecipeId = () => uuidv4();
 
 const AddRecipe = () => {
-  const [newRecipeTitle, setNewRecipeTitle] = useState('');
-  const [newRecipeDescription, setNewRecipeDescription] = useState('');
-  const [newRecipeSummary, setNewRecipeSummary] = useState('');
-  const [newRecipeIngredients, setNewRecipeIngredients] = useState('');
-  const [newImageUrl, setNewImageUrl] = useState('');
-  const [newTags, setNewTags] = useState('');
+  const [newRecipeTitle, setNewRecipeTitle] = useState<string>('');
+  const [newRecipeDescription, setNewRecipeDescription] = useState<string>('');
+  const [newRecipeSummary, setNewRecipeSummary] = useState<string>('');
+  const [newRecipeIngredients, setNewRecipeIngredients] = useState<string>('');
+  const [newImageUrl, setNewImageUrl] = useState<string>('');
+  const [newTags, setNewTags] = useState<string>('');
   const navigate = useNavigate();
-  const [progress, setProgress] = useState(0);
+  const [progress, setProgress] = useState<number>(0);
 
-  const formHandler = (e) => {
+  const formHandler = (e: any): void => {
     e.preventDefault();
+    console.log(e);
     const file = e.target[0].files[0];
+
     uploadFiles(file);
   };
 
-  const uploadFiles = (file) => {
+  const uploadFiles = (file: File) => {
+    console.log(file, 'file');
     if (!file) {
       return;
     }
@@ -48,7 +52,9 @@ const AddRecipe = () => {
     );
   };
 
-  const handleChange = (event) => {
+  const handleChange = (event: {
+    target: { name: string; value: React.SetStateAction<string> };
+  }) => {
     if (event.target.name === 'recipe-title') {
       setNewRecipeTitle(event.target.value);
     }

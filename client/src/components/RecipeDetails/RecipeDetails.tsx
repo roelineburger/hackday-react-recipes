@@ -1,10 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './RecipeDetails.module.css';
+import { Recipe } from '../../types/types';
 
 const RecipeDetails = () => {
   const { id } = useParams();
-  const [recipe, setRecipe] = useState({});
+  const [recipe, setRecipe] = useState<Recipe>({
+    id: '',
+    title: '',
+    description: '',
+    summary: '',
+    ingredients: '',
+    image: '',
+    tags: [],
+  });
 
   useEffect(() => {
     const run = async () => {
